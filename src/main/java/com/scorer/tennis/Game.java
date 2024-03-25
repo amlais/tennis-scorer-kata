@@ -1,6 +1,7 @@
 package com.scorer.tennis;
 
 import com.scorer.tennis.enums.GameStatus;
+import com.scorer.tennis.utils.GameDisplay;
 import com.scorer.tennis.utils.GameValidator;
 
 
@@ -25,21 +26,21 @@ public class Game {
     public boolean play(String remainingPoints){
 
         if(!GameValidator.isGameValid(remainingPoints)) {
-            scoreCalculator.displayCorruptedPointsPlayerInput();
+            GameDisplay.displayCorruptedPointsPlayerInput();
             return false;
         }
         else{
             while(!remainingPoints.isEmpty() && !isGameFinished()){
                 scoreCalculator.updateCurrentScore(remainingPoints);
-                scoreCalculator.displayScore();
+                GameDisplay.displayScore(scoreCalculator.getPlayerOne(), scoreCalculator.getPlayerTwo());
                 remainingPoints = updateRemainingPoints(remainingPoints);
             }
             if(!remainingPoints.isEmpty()) {
-                scoreCalculator.displayTooLongGame();
+                GameDisplay.displayTooLongGame();
                 return false;
             }
             Player winner = scoreCalculator.getWinner();
-            scoreCalculator.displayWinner(winner);
+            GameDisplay.displayWinner(winner);
             return true;
         }
     }

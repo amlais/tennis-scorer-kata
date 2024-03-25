@@ -1,6 +1,7 @@
 package com.scorer.tennis;
 
 
+import com.scorer.tennis.utils.GameDisplay;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,8 +12,7 @@ class GameTest {
         String playerPoints = "ABAAB";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         game.play(playerPoints);
@@ -26,8 +26,7 @@ class GameTest {
         String playerPoints = "ABABAA";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         game.play(playerPoints);
@@ -41,8 +40,7 @@ class GameTest {
         String playerPoints = "BABABABABABB";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         game.play(playerPoints);
@@ -56,8 +54,7 @@ class GameTest {
         String playerPoints = "BABABABABABB";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         assertTrue(game.play(playerPoints));
@@ -68,8 +65,7 @@ class GameTest {
         String playerPoints = "BABABABABABBC";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         assertFalse(game.play(playerPoints));
@@ -80,8 +76,7 @@ class GameTest {
         String playerPoints = "AAAA";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         assertTrue(game.play(playerPoints));
@@ -92,8 +87,7 @@ class GameTest {
         String playerPoints = "";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         assertFalse(game.play(playerPoints));
@@ -104,8 +98,7 @@ class GameTest {
         String playerPoints = "ABA";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         assertFalse(game.play(playerPoints));
@@ -116,8 +109,7 @@ class GameTest {
         String playerPoints = "BABABABABABBA";
         Player one = new Player("A");
         Player two = new Player("B");
-        GameDisplay gameDisplay = new GameDisplay();
-        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two, gameDisplay);
+        ScoreCalculator scoreCalculator = new ScoreCalculator(one, two);
         Game game = new Game(scoreCalculator);
 
         assertFalse(game.play(playerPoints));

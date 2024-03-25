@@ -1,6 +1,7 @@
 package com.scorer.tennis;
 
 import com.scorer.tennis.enums.GameStatus;
+import com.scorer.tennis.utils.GameDisplay;
 
 import java.util.Objects;
 
@@ -10,12 +11,10 @@ public class ScoreCalculator {
 
     private final Player playerTwo;
 
-    private final GameDisplay gameDisplay;
 
-    public ScoreCalculator(Player playerOne, Player playerTwo, GameDisplay gameDisplay){
+    public ScoreCalculator(Player playerOne, Player playerTwo){
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
-        this.gameDisplay = gameDisplay;
     }
 
     /**
@@ -37,32 +36,20 @@ public class ScoreCalculator {
         return GameStatus.NOTWON;
     }
 
+    public Player getPlayerOne(){
+        return playerOne;
+    }
+
+    public Player getPlayerTwo(){
+        return playerTwo;
+    }
+
     public Player getWinner(){
         if(playerOne.isWinner(playerTwo))
             return playerOne;
         if(playerTwo.isWinner(playerOne))
             return playerTwo;
         return null;
-    }
-
-    public void displayScore(){
-        gameDisplay.displayScore(playerOne, playerTwo);
-    }
-
-    public boolean displayWinner(Player player){
-        if(Objects.nonNull(player)) {
-            gameDisplay.displayWinner(player);
-            return true;
-        }
-        return false;
-    }
-
-    public void displayCorruptedPointsPlayerInput(){
-        gameDisplay.displayCorruptedPointsPlayerInput();
-    }
-
-    public void displayTooLongGame(){
-        gameDisplay.displayTooLongGame();
     }
 
 }
